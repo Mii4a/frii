@@ -41,3 +41,16 @@ services:
     # dbコンテナよりも後に起動
     depends_on:
       - db
+
+  # React
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    command: "yarn start"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./frontend/:/app
+    tty: true
+      

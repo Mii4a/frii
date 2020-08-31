@@ -5,12 +5,8 @@ services:
     #ビルドするイメージ
     image: mysql:5.7
     # 環境変数の指定
-    environment:
-      MYSQL_ROOT_PASSWORD: mii4a2501
-      MYSQL_DATABASE: spportunity
-      MYSQL_USER: mii4a
-      MYSQL_PASSWORD: syoutacancer123
-      TZ: 'Asia/Tokyo'
+    env_file:
+      - ./environments/db.env
     # 文字コードをutf8mb4に設定
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:

@@ -1,0 +1,43 @@
+version: "3"
+services:
+  # MySQL
+  db:
+    #ビルドするイメージ
+    image: mysql:5.7
+    # 環境変数の指定
+    environment:
+      MYSQL_ROOT_PASSWORD: mii4a2501
+      MYSQL_DATABASE: spportunity
+      MYSQL_USER: mii4a
+      MYSQL_PASSWORD: syoutacancer123
+      TZ: 'Asia/Tokyo'
+    # 文字コードをutf8mb4に設定
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      # db/dataディレクトリをコンテナのmysqlディレクトリにマウント
+      - ./db/data/:/var/lib/mysql
+      # /db/my.cnfファイルをコンテナ内のmy.cnf設定ファイルにマウント
+      - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
+    ports:
+      - 3306:3306
+
+  #Rails  
+  backend:
+    # ビルド元の指定
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    # コンテナ名の指定
+    container_name: "sample-backend"
+    env_file: 
+      - ./environments/db.env
+    # 起動時のコマンド指定 前のプロセスを終了してからrails sをしている
+    command: bash -c "rm -f tmp/pids/server.pid && rails s -p 3000 -b '0.0.0.0'"
+    # backendフォルダ内のファイルをコンテナ内のappディレクトリにマウント
+    volumes:
+      - ./backend/:/app
+    ports:
+      - "3000:3000"
+    # dbコンテナよりも後に起動
+    depends_on:
+      - db

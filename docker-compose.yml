@@ -24,7 +24,6 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     # コンテナ名の指定
-    container_name: "sample-backend"
     env_file: 
       - ./environments/db.env
     # 起動時のコマンド指定 前のプロセスを終了してからrails sをしている
@@ -32,6 +31,7 @@ services:
     # backendフォルダ内のファイルをコンテナ内のappディレクトリにマウント
     volumes:
       - ./backend/:/app
+      - bundle:/usr/local/bundle
     ports:
       - "3000:3000"
     # dbコンテナよりも後に起動
@@ -49,4 +49,6 @@ services:
     volumes:
       - ./frontend/:/app
     tty: true
-      
+
+volumes:
+  bundle:

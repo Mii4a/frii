@@ -1,34 +1,24 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import logo from './assets/logo.svg';
 import './assets/App.css';
-import SignUp from './pages/SignUp';
+import styled from 'styled-components';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import LogIn from './pages/LogIn';
+import SignUp from './pages/SignUp'
+import Welcome from './pages/Welcome'
 
-const App = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-      <Router>
-        <Link to="/signup">
-          <div>
-            <Route path='/signup' component={SignUp}></Route>
-          </div>
-        </Link>
-      </Router>
-    </header>
-  </div>
-);
+const Wrapper = styled.div``;
 
 
-export default App;
+export default class App extends React.Component {
+  render () {
+    return (
+      <Wrapper>
+        <Router>
+          <Route exact path="/" component={Welcome}></Route>
+          <Route exact path="/signup" component={SignUp}></Route>
+          <Route exact path="/login" component={LogIn}></Route>
+        </Router>
+      </Wrapper>
+    )
+  }
+}

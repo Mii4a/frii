@@ -7,8 +7,8 @@ class User < ApplicationRecord
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
   
-  validates_presence_of :name, :email
-  validates_uniqueness_of :email
+  # validates_presence_of :name, :email
+  # validates_uniqueness_of :email
 
   validates :name,  length: { maximum: 20 },
                     presence: true

@@ -22,7 +22,7 @@ RSpec.describe "Users", type: :request do
       end
       it 'succeeds to create a new user' do
         expect do
-          post api_v1_users_path, params: params
+          post api_v1_user_registration_path, params: params
         end.to change(User, :count).by(1)
       end
     end

@@ -2,6 +2,7 @@
 
 class Api::V1::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
+  # before_action :confirm_conf_sign_up_params_not_nil, only: [:create]
   before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
@@ -51,7 +52,13 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :password_confirmation])
+    devise_parameter_sanitizer.require(:registration).permit(:sign_up, keys: [:name, :email, :password, :password_confirmation, :confirm_success_url])
+  end
+
+  def confirm_conf_sign_up_params_not_nil
+    if configure_sign_up_params.nil?
+      pp configure_sign_up_params
+    end
   end
 
   # If you have extra params to permit, append them to the sanitizer.

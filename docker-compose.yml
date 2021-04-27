@@ -38,6 +38,7 @@ services:
     depends_on:
       - db
 
+
   # React
   frontend:
     build:

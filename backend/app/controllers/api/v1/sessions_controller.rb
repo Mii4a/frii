@@ -10,15 +10,18 @@ class Api::V1::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    resource = warden.authenticate(configure_sign_in_params)
+    resource = warden.authenticate!(configure_sign_in_params)
     sign_in(resource_name, resource)
+    yield resource if block_given?
     render :json
   end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
+    yield if block_given?
+    respond_to_on destroy
+  end
 
   # protected
 

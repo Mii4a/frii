@@ -1,0 +1,15 @@
+0000000000000000000000000000000000000000 b54bdf4237436e9e9e3f9107ea14f4f96c42d10a mii4a <beppu0918@outlook.jp> 1599322907 +0900	branch: Created from HEAD
+b54bdf4237436e9e9e3f9107ea14f4f96c42d10a 034a51b034bb12d46f6284eb56a4677f7552b024 mii4a <beppu0918@outlook.jp> 1599326699 +0900	commit: Create User
+034a51b034bb12d46f6284eb56a4677f7552b024 9c038cc92f886c8346af497b5dc0b28ad10b84c5 mii4a <beppu0918@outlook.jp> 1617639863 +0900	commit: Add user model
+9c038cc92f886c8346af497b5dc0b28ad10b84c5 5c7465f3966dd996a159baa2b15e99bef03366b4 mii4a <beppu0918@outlook.jp> 1617718000 +0900	commit: Add rspec and Factory
+5c7465f3966dd996a159baa2b15e99bef03366b4 a80577dc507081674b43bd61bdd914cb1560b3f0 mii4a <beppu0918@outlook.jp> 1617718416 +0900	commit: Add name to users
+a80577dc507081674b43bd61bdd914cb1560b3f0 dc8f108ea4cdc71bb5d45a698d6c13c05ba4ea8f mii4a <beppu0918@outlook.jp> 1617720756 +0900	commit: Successfully migration which add a name column to users
+dc8f108ea4cdc71bb5d45a698d6c13c05ba4ea8f b98a3d75c29de36b84c5415b4a2f2c4066ed7941 mii4a <beppu0918@outlook.jp> 1617983259 +0900	commit: Add user model spec
+b98a3d75c29de36b84c5415b4a2f2c4066ed7941 89e28e85da1a9ae71f179fc39c11609cde00d874 mii4a <beppu0918@outlook.jp> 1618592113 +0900	commit: Add devise controllers
+89e28e85da1a9ae71f179fc39c11609cde00d874 bcda4c0f7eff7a013d04989767d1142f2c46b700 mii4a <beppu0918@outlook.jp> 1618758983 +0900	commit: modify registrations
+bcda4c0f7eff7a013d04989767d1142f2c46b700 89e28e85da1a9ae71f179fc39c11609cde00d874 mii4a <beppu0918@outlook.jp> 1618759126 +0900	reset: moving to HEAD^
+89e28e85da1a9ae71f179fc39c11609cde00d874 b4e6d42977792962d252c64d1d8749fd8757da16 mii4a <beppu0918@outlook.jp> 1618926248 +0900	commit: Recreate User model for devise token auth
+b4e6d42977792962d252c64d1d8749fd8757da16 31bd0f4c90e155f6004137d96a92a622eabb771f mii4a <beppu0918@outlook.jp> 1619013578 +0900	commit: modify User
+31bd0f4c90e155f6004137d96a92a622eabb771f 112678174428c6356cd244ae5ed908a74aac733e mii4a <beppu0918@outlook.jp> 1619525440 +0900	commit: Revisionized User
+112678174428c6356cd244ae5ed908a74aac733e d7480b801b7a82befe736f84a23dab8646e40866 mii4a <beppu0918@outlook.jp> 1619530065 +0900	commit: Remove the confirmable of User
+d7480b801b7a82befe736f84a23dab8646e40866 06537a15f579b5cb40b33976470bd8ada873a574 mii4a <beppu0918@outlook.jp> 1619530254 +0900	commit: change devise auth token initializer

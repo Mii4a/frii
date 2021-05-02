@@ -1,8 +1,11 @@
 class User < ApplicationRecord
   # Include default devise modules.
-   devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
+  
+  has_many :tagmaps, dependent: :destroy
+  has_many :tags, through: :tagmaps
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
   

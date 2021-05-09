@@ -15,7 +15,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
     @user = User.new(configure_sign_up_params)
 
     if @user.save
-      render json: {status: 'success', data: users}
+      render json: {status: 'success', data: @user}, each_serializer: UserSerializer
 
     else
       render json: { error: @user.errors.full_messages.join('') },

@@ -1,4 +1,4 @@
 class Tagmap < ApplicationRecord
-  belong_to :user
-  belong_to :tag
+  belongs_to :user
+  belongs_to :tag
 end

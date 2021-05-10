@@ -31,7 +31,12 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    super
+    @user = User.find(:id)
+    @tag_list = configure_account_update_params[:tag_name].split(nil)
+    if @user.update_attributes(configure_account_update_params)
+      @user.save_tags(@tag_list)
+      render json: {status: :success}
+    end
   end
 
   # DELETE /resource
@@ -48,11 +53,11 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.require(:registration).permit(:sign_up, keys: [:name, :email, :password, :password_confirmation, :confirm_success_url])
+    devise_parameter_sanitizer.require(:registration).permit(:sign_up, keys: [:name, :email, :password, :password_confirmation, :tag_name)
   end
 
   def confirm_conf_sign_up_params_not_nil
@@ -62,9 +67,9 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   end
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :password, :password_confirmation, :tag_name])
+  end
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)

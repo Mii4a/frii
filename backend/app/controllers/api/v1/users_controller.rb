@@ -1,6 +1,4 @@
 class Api::V1::UsersController < ApplicationController
-  wrap_parameters :user, include: [:name, :email,
-   :password, :password_confirmation]
 
   # GET /users
   # GET /users.json
@@ -28,13 +26,8 @@ class Api::V1::UsersController < ApplicationController
   #   end
   # end
 
-  # def update
-  #   if @user.update(user_params)
-  #     render :show, status: :ok, location: @user
-  #   else
-  #     render :json, @user.errors, status: :unprocessable_entity
-  #   end
-  # end
+  def update
+  end
 
   # def destroy
   #   @user.destroy

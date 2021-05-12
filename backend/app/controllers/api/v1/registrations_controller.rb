@@ -18,8 +18,8 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
       render json: {status: 'success', data: @user}, each_serializer: UserSerializer
 
     else
-      render json: { error: @user.errors.full_messages.join('') },
-             status: :unprocessable_entity
+      render json: { status: :unprocessable_entity, error: @user.errors.full_messages.join('') }
+             
 
     end
   end

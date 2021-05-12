@@ -232,7 +232,7 @@ DEPENDENCIES
   omniauth
   pry-byebug
   pry-rails
-  puma (~> 4.1)
+  puma (~> 4.3)
   rack-cors
   rails (~> 6.0.3, >= 6.0.3.2)
   rspec-rails (~> 5.0.0)

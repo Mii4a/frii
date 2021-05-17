@@ -49,8 +49,8 @@ module App
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    # config.sesison_store :cookie_store, key: '_frii_backend_1_session'
-    # config.miffleware.use ActionDispatch::Cookies
-    # config.middleware.use ActionDispatch::Session::CookieStore, config.session_options
+    config.sesison_store :cookie_store, key: '_frii_backend_1_session'
+    config.miffleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore, config.session_options
   end
 end

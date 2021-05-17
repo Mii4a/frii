@@ -32,10 +32,14 @@ gem "devise", git: "https://github.com/heartcombo/devise"
 gem 'devise_token_auth'
 
 gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
 
 #Use to make JSON data
 gem 'jbuilder'
 
+#Use to configure an env file
+gem 'dotenv-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

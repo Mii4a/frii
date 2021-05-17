@@ -6,9 +6,9 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    render_new_error
+  end
 
   # POST /resource
   def create
@@ -80,4 +80,8 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  def render_new_error
+    render_error(405, I18n.t('devise_token_auth.sessions.not_supported'))
+  end
 end

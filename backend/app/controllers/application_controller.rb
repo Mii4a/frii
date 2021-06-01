@@ -5,7 +5,7 @@ class ApplicationController < ActionController::API
   
   private
   def configure_permitted_parameters
-    key_attr = [:name, :email, :password, :password_confirmation]
+    key_attr = [:name, :email, :password, :password_confirmation, :provider, :uid]
     devise_parameter_sanitizer.permit :sign_up, keys: key_attr
   end
 end

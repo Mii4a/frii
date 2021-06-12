@@ -34,5 +34,8 @@ ADD . $APP_ROOT
 # コンテナがlistenするポート番号
 EXPOSE 3000
 
+COPY startup.sh /startup.sh
+RUN chmod 704 /startup.sh
+
 # 実行されるコマンド
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["/startup.sh"]
